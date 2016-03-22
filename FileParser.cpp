@@ -150,7 +150,7 @@ bool FileParser::ParserMatrix(std::string *buf)
             {
                 row++;
             }
-            des = atof(buf[row].c_str());
+            des = atof(buf[row++].c_str());
             _displaymanager.PushCMatrix(srcmat * des);
             (srcmat * des).Output();
         }

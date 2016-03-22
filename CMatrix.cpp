@@ -363,5 +363,6 @@ void CMatrix::Output()
         }
         std::cout << std::endl;
     }
+    std::cout<<std::endl;
 }
 

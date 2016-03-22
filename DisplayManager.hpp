@@ -88,15 +88,19 @@ public:
     CVector3 GetVector(int i);
     
     /*
-     *  Push vector
+     *  clear all vector
      */
     
     void ClearVector();
     
+    /*
+     *  Push matrix
+     */
+    
     void PushCMatrix(CMatrix cm);
     
     /*
-     *  Get no.i vector
+     *  Get no.i matrix
      */
     
     CMatrix GetMatrix(int i);

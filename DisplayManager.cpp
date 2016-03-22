@@ -144,7 +144,7 @@ void DisplayManager::RenderScene(void)
         
         if( vecO[vecO.size()-1] == 3 || vecO[vecO.size()-1] == 4)
         {
-            num_V = 1;
+            num_V = 2;
         }
         else
             num_V = 0;
@@ -152,7 +152,7 @@ void DisplayManager::RenderScene(void)
         
         for(int i = 0 ; i < num_V ; i++)
         {
-            DrawVector3(vecV[i], 2.0f, palette_vec[i]);
+            DrawVector3(vecV[vecV.size()-1-i], 2.0f, palette_vec[i]);
         }
         
         int num_M;
@@ -180,6 +180,7 @@ void DisplayManager::ClearVector()
 {
     vecM.clear();
     vecV.clear();
+    vecO.clear();
 }
 
 void DisplayManager::KeyboardFunc(unsigned char key,int x, int y)
