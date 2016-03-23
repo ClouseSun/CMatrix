@@ -264,7 +264,7 @@ void DisplayManager::KeyboardFunc(unsigned char key,int x, int y)
             mz = -8.6f;
             rx = ry = rz = 0;
             break;
-        case 'p':
+        case GLUT_KEY_F5:
             if(vecO.size() != 0)
             {
                 if (vecO[vecO.size()-1] == 1)
@@ -474,11 +474,16 @@ void DisplayManager::DrawVector3(CVector3 cv3, GLfloat width, float *palette)
     glVertex3f(cv3.GetX(),cv3.GetY(),cv3.GetZ());
     glEnd();
     
-//    glPushMatrix();
-//    glTranslatef(cv3.GetX(), cv3.GetY(), cv3.GetZ());
-//    glutWireCone(0.09, 0.3, 10, 10);
-//    glPopMatrix();
-    
+    glPushMatrix();
+    glTranslatef(cv3.GetX(), cv3.GetY(), cv3.GetZ());
+    CVector3 z(0.0f, 0.0f, 1.0f);
+    CVector3 rotate = z.CrossProduct(cv3);
+    float dot = cv3.DotProduct(z);
+    float len = cv3.GetLength();
+    float angle = acosf(float(dot/len)) * 180 / 3.1415926;
+    glRotatef(angle, rotate.GetX(), rotate.GetY(), rotate.GetZ());
+    glutWireCone(0.06, 0.2, 10, 10);
+    glPopMatrix();
 }
 
 void DisplayManager::DrawMatrix(CMatrix cm, GLfloat width, float *palette)

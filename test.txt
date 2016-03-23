@@ -58,7 +58,8 @@ rotate
 3 -1 2 0
 0 0 0 1
 
-45 0 1 0
+45
+0 1 0
 
 translation
 
